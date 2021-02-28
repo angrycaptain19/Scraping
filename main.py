@@ -14,10 +14,15 @@ def getSite(url):
 
     try:
         bs = bs4(html, 'html.parser')
-    except AttributeError as e:
+    except Exception as e:
         return None
-
     return bs
 
-site = getSite('https://www.moex.com/')
-print(site.find_all('div')[4].find_all('img'))
+site = getSite('http://pythonscraping.com/pages/warandpeace.html')
+nameList = site.find_all('span', {'class': 'green'})
+site.find_all()
+print(nameList)
+a = set()
+for name in nameList:
+    a.add(name.get_text())
+print (a)
