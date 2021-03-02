@@ -22,7 +22,5 @@ site = getSite('http://pythonscraping.com/pages/warandpeace.html')
 nameList = site.find_all('span', {'class': 'green'})
 site.find_all()
 print(nameList)
-a = set()
-for name in nameList:
-    a.add(name.get_text())
+a = {name.get_text() for name in nameList}
 print (a)
